@@ -1,1 +1,36 @@
+openapi: 3.0.0
+info:
+  title: Jira Task Creator
+  version: 1.0.0
+servers:
+  - url: "http://localhost:3000/api"
+paths:
+  /create-task:
+    post:
+      summary: Создать задачу в Jira
+      description: Отправляет запрос на создание задачи в Jira
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                summary:
+                  type: string
+                  example: "Новое задание"
+                description:
+                  type: string
+                  example: "Описание задачи"
+                project:
+                  type: string
+                  example: "TEST"
+                issueType:
+                  type: string
+                  example: "Task"
+      responses:
+        "201":
+          description: Задача успешно создана
+        "400":
+          description: Ошибка в запросе
 
