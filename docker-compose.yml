@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  swagger-ui:
+    container_name: swagger_ui
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=production
+      - GITHUB_RAW_URL=https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/swagger.yaml
